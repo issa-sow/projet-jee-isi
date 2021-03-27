@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnexionDB {
-    public static Connection getConnection()
-    Connection connection = null;
+    public static Connection getConnection(){
+        Connection connection = null;
         /*try {
             Class.forName( "com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
