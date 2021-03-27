@@ -5,28 +5,36 @@ import java.util.Date;
 import java.util.List;
 
 public class Commande {
-    private static long idCommande;
+    private Integer idCommande;
+    private String dateCommande;
     private Client client;
-    private List<Produit> produits;
 
     public Commande() {
-        Commande.idCommande++;
+        this.idCommande = null;
+        this.dateCommande = null;
         this.client = new Client();
-        this.produits = new ArrayList<Produit>();
     }
 
-    public Commande(Client client, List<Produit> produits) {
-        Commande.idCommande++;
+    public Commande(Integer idCommande, String dateCommande, Client client) {
+        this.idCommande = idCommande;
+        this.dateCommande = dateCommande;
         this.client = client;
-        this.produits = produits;
     }
 
-    public long getIdCommande() {
-        return Commande.idCommande;
+    public Integer getIdCommande() {
+        return idCommande;
     }
 
-    public static void setIdCommande() {
-        Commande.idCommande++;
+    public void setIdCommande(Integer idCommande) {
+        this.idCommande = idCommande;
+    }
+
+    public String getDateCommande() {
+        return dateCommande;
+    }
+
+    public void setDateCommande(String dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     public Client getClient() {
@@ -37,21 +45,11 @@ public class Commande {
         this.client = client;
     }
 
-    public List<Produit> getProduits() {
-        return produits;
-    }
-
-    public void setProduits(List<Produit> produits) {
-        this.produits = produits;
-    }
-
     public String toString() {
-        String allProduct = "";
-        for (Produit p : produits) {
-            allProduct += p.toString() + "\n";
-        }
         return "Commande {\n" +
+                "\t\tidCommande=" + idCommande + "\n" +
+                "\t\tdatecommande=" + dateCommande + "\n" +
                 client.toString() + "\n" +
-                allProduct + "}";
+                "\n}";
     }
 }

@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Stock {
-    private static Stock insatance = null;
-    private List<Produit> allProduct = new ArrayList<>();
+    private static Stock instance = null;
+    private List<Produit> allProduct;
+
     static {
-        insatance = new Stock();
+        instance = new Stock();
     }
 
     public final static Stock getInsatance() {
-        return insatance;
+        return instance;
     }
 
-    private Stock(){ }
+    private Stock(){
+         this.allProduct = new ArrayList<Produit>();
+    }
 
     public List<Produit> getAllProduct() {
         return allProduct;
